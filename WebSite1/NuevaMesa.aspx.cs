@@ -5,6 +5,11 @@ using System.Configuration;
 using System.Web.UI.WebControls; // Para ListItemType
 using System.Web.UI;
 
+
+
+/// <summary>
+/// comentario de prueba :v 
+/// </summary>
 public partial class NuevaMesa : System.Web.UI.Page
 {
     // Clase para almacenar producto agregado con observaciones
