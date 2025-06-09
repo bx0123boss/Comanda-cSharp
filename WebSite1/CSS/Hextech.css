@@ -1,0 +1,293 @@
+﻿/* Fuentes y reset básico */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fdf6e3; /* tono crema suave, ideal para comida */
+    color: #333;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* Encabezado fijo */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(135deg, #4A90E2, #6A5ACD); /* azul y morado */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    justify-content: flex-end; /* contenido a la derecha */
+    user-select: none;
+}
+
+/* Si usas logo dentro del header */
+header .logo {
+    height: 40px;
+    margin-left: 15px;
+}
+
+header .logo img {
+    height: 40px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+}
+
+/* Sidebar */
+
+.sidebar {
+    position: fixed;
+    top: 60px; /* debajo del header */
+    left: 0;
+    width: 260px;
+    height: calc(100vh - 60px);
+    background: #3a2f1c; /* café oscuro */
+    color: #fff;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.15);
+    z-index: 1500;
+}
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #a87d3d; /* dorado suave */
+    border-radius: 3px;
+}
+
+.sidebar .menu {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.sidebar .menu li {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+}
+
+.sidebar .menu li i {
+    margin-right: 15px;
+    font-size: 1.3rem;
+    min-width: 25px;
+    text-align: center;
+    color: #f9c784; /* amarillo dorado */
+}
+
+.sidebar .menu li:hover,
+.sidebar .menu li.active {
+    background: #a87d3d; /* dorado */
+    color: #fff;
+}
+
+.sidebar.collapsed .menu li span {
+    display: none;
+}
+
+.sidebar.collapsed .menu li {
+    justify-content: center;
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 260px;
+    padding: 90px 30px 30px 30px; /* espacio para header */
+    transition: margin-left 0.3s ease;
+    min-height: calc(100vh - 60px);
+    background: #fff9f0;
+}
+
+.sidebar.collapsed ~ .main-content {
+    margin-left: 70px;
+}
+
+/* Botón hamburguesa toggle */
+.toggle-btn {
+    position: fixed;
+    top: 15px;
+    left: 270px;
+    background: #ff7e5f;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    transition: left 0.3s ease, background 0.3s ease;
+    z-index: 2100;
+}
+
+.sidebar.collapsed ~ .toggle-btn {
+    left: 80px;
+}
+
+.toggle-btn:hover {
+    background: #feb47b;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .sidebar {
+        top: 60px;
+        left: -260px;
+        height: calc(100vh - 60px);
+        transition: left 0.3s ease;
+        width: 260px !important; /* evitar colapsar en móvil */
+        box-shadow: 2px 0 12px rgba(0,0,0,0.25);
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar.collapsed {
+        width: 260px !important;
+    }
+
+    .sidebar.collapsed .menu li span {
+        display: inline;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        padding: 90px 20px 20px 20px;
+    }
+
+    .toggle-btn {
+        left: 15px !important;
+        top: 15px !important;
+        background: #ff7e5f;
+    }
+}
+
+/* Scroll suave para todo */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Botones en el main content - estilo */
+.main-content button,
+.main-content .btn {
+    background: #a87d3d;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(168,125,61,0.6);
+    transition: background 0.3s ease;
+}
+
+.main-content button:hover,
+.main-content .btn:hover {
+    background: #feb47b;
+}
+
+
+        .mesas-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .mesa-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #444;
+            user-select: none;
+        }
+
+        .mesa-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Icono de mesa */
+        .mesa-icon {
+            font-size: 48px;
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+
+        .mesa-numero {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .mesa-estatus {
+            font-size: 16px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .btn-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #2980b9;
+            color: white;
+            padding: 14px 32px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.4);
+            user-select: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #1c5985;
+            box-shadow: 0 6px 16px rgba(28, 89, 133, 0.6);
+        }
+
+   
+   
