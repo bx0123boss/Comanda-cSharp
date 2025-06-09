@@ -1,0 +1,57 @@
+# Ignorar archivos generados por el IDE/Editor
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+_ReSharper.*
+*.resharper
+*.vs/
+
+# Ignorar resultados de compilación
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+*.pdb
+*.cache
+
+# Ignorar paquetes NuGet
+packages/
+*.nupkg
+NuGet.exe
+
+# Ignorar archivos de publicación
+publish/
+
+# Ignorar archivos de usuario
+*.aspx.cs
+*.aspx.designer.cs
+*.ascx.cs
+*.ascx.designer.cs
+*.master.cs
+*.master.designer.cs
+
+# Ignorar archivos temporales
+*.tmp
+*.temp
+
+# Ignorar logs y reportes
+*.log
+*.log.*
+*.tlog
+
+# Ignorar archivos de configuración personalizados
+web.*.config
+
+# Ignorar archivos de datos de aplicación
+App_Data/
+
+# Ignorar archivos de recursos compilados
+/resources/
+/Resource/
+
+# Ignorar archivos de TypeScript
+*.js.map
+*.js
